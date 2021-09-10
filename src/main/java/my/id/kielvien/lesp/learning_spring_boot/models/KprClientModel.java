@@ -2,6 +2,8 @@ package my.id.kielvien.lesp.learning_spring_boot.models;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class KprClientModel{
 	private UUID id;
 	private UUID idClient;
@@ -10,7 +12,12 @@ public class KprClientModel{
 	private double loanInterest;
 	private double instalment;
 	
-	public KprClientModel(UUID id, UUID idClient, double total, double dp, double loanInterest, double instalment) {
+	public KprClientModel(@JsonProperty("id") UUID id,
+			@JsonProperty("idClient") UUID idClient,
+			@JsonProperty("total") double total,
+			@JsonProperty("dp") double dp,
+			@JsonProperty("loanInterest") double loanInterest,
+			@JsonProperty("instalment") double instalment) {
 		this.id = id;
 		this.idClient = java.util.UUID.randomUUID();
 		this.total = total;
