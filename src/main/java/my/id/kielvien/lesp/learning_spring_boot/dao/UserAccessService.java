@@ -19,7 +19,7 @@ public class UserAccessService implements UserDao{
 	private UserModel searchUserFromList(UUID id) {
 		UserModel userFind = null;
 		for(UserModel user : users) {
-			if(user.getId().equals(id)) {
+			if(!user.getId().equals(id)) {
 				continue;
 			}else {
 				userFind = user;
@@ -90,7 +90,8 @@ public class UserAccessService implements UserDao{
 	@Override
 	public UserModel searchUser(UUID id) {
 		// TODO Auto-generated method stub
-		UserModel userFind = searchUser(id);
+		logger.info("Start search with id : {}", id);
+		UserModel userFind = searchUserFromList(id);
 		return userFind;
 	}
 }
