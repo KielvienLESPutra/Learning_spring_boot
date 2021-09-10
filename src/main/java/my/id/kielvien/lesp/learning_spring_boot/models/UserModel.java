@@ -2,6 +2,8 @@ package my.id.kielvien.lesp.learning_spring_boot.models;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserModel {
 	private UUID id;
 	private String name;
@@ -9,7 +11,11 @@ public class UserModel {
 	private String telp;
 	private String email;
 	
-	public UserModel(UUID id, String name, String address, String telp, String email) {
+	public UserModel(@JsonProperty("id") UUID id, 
+			@JsonProperty("name") String name, 
+			@JsonProperty("address") String address, 
+			@JsonProperty("telp") String telp, 
+			@JsonProperty("email") String email) {
 		this.id = java.util.UUID.randomUUID();
 		this.name = name;
 		this.address = address;
