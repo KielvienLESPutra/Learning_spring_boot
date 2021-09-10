@@ -46,8 +46,8 @@ public class UserController {
 	}
 
 	@GetMapping(path = "{id}")
-	public void searchUser(@PathVariable("id") UUID id) {
-		userService.searchUser(id);
+	public UserModel searchUser(@PathVariable("id") UUID id) {
+		return userService.searchUser(id);
 	}
 	
 	@GetMapping
