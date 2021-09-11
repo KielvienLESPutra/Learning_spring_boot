@@ -15,8 +15,6 @@ import my.id.kielvien.lesp.learning_spring_boot.models.UserModel;
 
 @Service
 public class UserService {
-
-	Logger logger = LoggerFactory.getLogger(UserService.class);
 	private UserAccessService userAccess;
 	
 	@Autowired
@@ -25,7 +23,6 @@ public class UserService {
 	}
 	
 	public void addUser(UserModel user) {
-		logger.info("Start adding user to database with data : {}", user.toString());
 		userAccess.addUser(user);
 	}
 	

@@ -21,7 +21,6 @@ import my.id.kielvien.lesp.learning_spring_boot.service.UserService;
 @RequestMapping(value= "/user")
 @RestController
 public class UserController {
-	Logger logger = LoggerFactory.getLogger(UserController.class);
 	private UserService userService;
 	
 	@Autowired
@@ -31,7 +30,6 @@ public class UserController {
 	
 	@PostMapping
 	public void postAddUser(@RequestBody UserModel user) {
-		logger.info("Start adding user to database with data : {}", user.toString());
 		userService.addUser(user);
 	}
 
