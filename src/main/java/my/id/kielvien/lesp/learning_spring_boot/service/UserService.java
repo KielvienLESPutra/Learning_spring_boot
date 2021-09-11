@@ -18,7 +18,7 @@ public class UserService {
 	private UserAccessService userAccess;
 	
 	@Autowired
-	public UserService(@Qualifier("memory_database") UserAccessService userAccess) {
+	public UserService(@Qualifier("memory_database_user") UserAccessService userAccess) {
 		this.userAccess = userAccess;
 	}
 	
