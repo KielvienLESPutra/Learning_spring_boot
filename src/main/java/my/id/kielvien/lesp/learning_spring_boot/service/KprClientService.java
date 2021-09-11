@@ -3,6 +3,8 @@ package my.id.kielvien.lesp.learning_spring_boot.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,7 @@ public class KprClientService {
 	
 	private KprClientModel calculateLoanInterestFlat(KprClientModel kpr) {
 		if(0 <= kpr.getInstalment()) {
-			double instalment = (kpr.getLoanInterest() * (kpr.getTotal() - kpr.getDp())) / 12;
+			double instalment = ((kpr.getTotal() - kpr.getDp()) / 12) + ((kpr.getLoanInterest()/100) * (kpr.getTotal() - kpr.getDp())) / 12;
 			kpr.setInstalment(instalment);
 		}
 		return kpr;
