@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import my.id.kielvien.lesp.learning_spring_boot.models.UserModel;
 
-@Repository("memory_database")
+@Repository("memory_database_user")
 public class UserAccessService implements UserDao{
 	
 	Logger logger = LoggerFactory.getLogger(UserAccessService.class);

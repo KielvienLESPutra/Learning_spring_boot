@@ -2,9 +2,12 @@ package my.id.kielvien.lesp.learning_spring_boot.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import my.id.kielvien.lesp.learning_spring_boot.models.KprClientModel;
 import my.id.kielvien.lesp.learning_spring_boot.models.UserModel;
 
+@Repository("memory_database_kpr")
 public class KprClientAccessService implements KprClientDao{
 	@Override
 	public boolean addKprClient(KprClientModel user) {
