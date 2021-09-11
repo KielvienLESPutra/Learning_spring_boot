@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import my.id.kielvien.lesp.learning_spring_boot.dao.KprClientAccessService;
+import my.id.kielvien.lesp.learning_spring_boot.dao.UserAccessService;
 import my.id.kielvien.lesp.learning_spring_boot.models.KprClientModel;
 
 @Service
 public class KprClientService {
 	private KprClientAccessService kprAccess;
+	private UserAccessService userAccess;
 	
 	private KprClientModel calculateLoanInterestFlat(KprClientModel kpr) {
 		if(0 <= kpr.getInstalment()) {
@@ -23,12 +25,18 @@ public class KprClientService {
 	}
 	
 	@Autowired
-	public KprClientService(@Qualifier("memory_database_kpr") KprClientAccessService kprAccess) {
+	public KprClientService(@Qualifier("memory_database_kpr") KprClientAccessService kprAccess, 
+			@Qualifier("memory_database_user") UserAccessService userAccess) {
 		this.kprAccess = kprAccess;
+		this.userAccess = userAccess;
 	}
 	
-	public void addKprClient(KprClientModel kpr) {
-		kprAccess.addKprClient(calculateLoanInterestFlat(kpr));
+	public boolean addKprClient(KprClientModel kpr) {
+		boolean result = false;
+		if(null != userAccess.searchUser(kpr.getIdClient())) {
+			result = kprAccess.addKprClient(calculateLoanInterestFlat(kpr));
+		}
+		return result;
 	}
 	
 	public boolean updateKprClient(UUID id, KprClientModel kpr) {
