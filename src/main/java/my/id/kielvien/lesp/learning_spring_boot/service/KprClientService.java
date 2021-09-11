@@ -14,7 +14,6 @@ import my.id.kielvien.lesp.learning_spring_boot.models.KprClientModel;
 public class KprClientService {
 	private KprClientAccessService kprAccess;
 	
-	@Autowired
 	private KprClientModel calculateLoanInterestFlat(KprClientModel kpr) {
 		if(0 <= kpr.getInstalment()) {
 			double instalment = (kpr.getLoanInterest() * (kpr.getTotal() - kpr.getDp())) / 12;
