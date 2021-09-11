@@ -2,6 +2,7 @@ package my.id.kielvien.lesp.learning_spring_boot.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,19 @@ public class KprClientAccessService implements KprClientDao{
 	
 	Logger logger = LoggerFactory.getLogger(KprClientAccessService.class);
 	private List<KprClientModel> kprClients = new ArrayList<KprClientModel>();
+	
+	private KprClientModel searchUserFromList(UUID id) {
+		KprClientModel kprFind = null;
+		for(KprClientModel kpr : kprClients) {
+			if(!kpr.getId().equals(id)) {
+				continue;
+			}else {
+				kprFind = kpr;
+				break;
+			}
+		}
+		return kprFind; 
+	}
 	
 	@Override
 	public boolean addKprClient(KprClientModel kpr) {
