@@ -18,8 +18,8 @@ public class KprClientModel{
 			@JsonProperty("dp") double dp,
 			@JsonProperty("loanInterest") double loanInterest,
 			@JsonProperty("instalment") double instalment) {
-		this.id = id;
-		this.idClient = java.util.UUID.randomUUID();
+		this.id = java.util.UUID.randomUUID();
+		this.idClient = idClient;
 		this.total = total;
 		this.dp = dp;
 		this.loanInterest = loanInterest;
