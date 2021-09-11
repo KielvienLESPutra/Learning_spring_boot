@@ -28,23 +28,23 @@ public class KprClientService {
 		this.kprAccess = kprAccess;
 	}
 	
-	public void addUser(KprClientModel kpr) {
+	public void addKprClient(KprClientModel kpr) {
 		kprAccess.addKprClient(calculateLoanInterestFlat(kpr));
 	}
 	
-	public boolean updateUser(UUID id, KprClientModel kpr) {
+	public boolean updateKprClient(UUID id, KprClientModel kpr) {
 		return kprAccess.updateKprClient(id, calculateLoanInterestFlat(kpr));
 	}
 	
-	public boolean deleteUser(UUID id) {
+	public boolean deleteKprClient(UUID id) {
 		return kprAccess.deleteKprClient(id);
 	}
 	
-	public KprClientModel searchUser(UUID id) {
+	public KprClientModel searchKprClient(UUID id) {
 		return kprAccess.searchKprClient(id);
 	}
 	
-	public List<KprClientModel> getAllUser(){
+	public List<KprClientModel> getAllKprClient(){
 		return kprAccess.showKprClient();
 	}
 }
