@@ -39,7 +39,7 @@ public class KprClientAccessService implements KprClientDao{
 			result = true;
 		}catch (Exception e) {
 			// TODO: handle exception
-			logger.error("Error exception adding user : " + kpr.toString(), e);
+			logger.error("Error exception adding kpr : " + kpr.toString(), e);
 		}
 		return result;
 	}
@@ -47,7 +47,22 @@ public class KprClientAccessService implements KprClientDao{
 	@Override
 	public boolean updateKprClient(UUID id, KprClientModel kpr) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		try { 
+			KprClientModel kprFind = searchKprFromList(id);
+			if(null != kprFind) {
+				kprFind.setIdClient(kpr.getIdClient());
+				kprFind.setDp(kpr.getDp());
+				kprFind.setInstalment(kpr.getInstalment());
+				kprFind.setLoanInterest(kpr.getLoanInterest());
+				kprFind.setTotal(kpr.getTotal());
+				result = true;
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			logger.error("Error exception update kpr : " + id, e);
+		}
+		return result;
 	}
 
 	@Override
@@ -68,7 +83,7 @@ public class KprClientAccessService implements KprClientDao{
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
-			logger.error("Error exception delete user : " + id, e);
+			logger.error("Error exception delete kpr : " + id, e);
 		}
 		return result;
 	}
@@ -76,7 +91,7 @@ public class KprClientAccessService implements KprClientDao{
 	@Override
 	public KprClientModel searchKprClient(UUID id) {
 		// TODO Auto-generated method stub
-		logger.info("Start search with id : {}", id);
+		logger.info("Start search kpr with id : {}", id);
 		KprClientModel kprFind = searchKprFromList(id);
 		return kprFind;
 	}
