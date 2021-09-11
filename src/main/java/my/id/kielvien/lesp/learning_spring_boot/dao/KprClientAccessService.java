@@ -16,7 +16,7 @@ public class KprClientAccessService implements KprClientDao{
 	Logger logger = LoggerFactory.getLogger(KprClientAccessService.class);
 	private List<KprClientModel> kprClients = new ArrayList<KprClientModel>();
 	
-	private KprClientModel searchUserFromList(UUID id) {
+	private KprClientModel searchKprFromList(UUID id) {
 		KprClientModel kprFind = null;
 		for(KprClientModel kpr : kprClients) {
 			if(!kpr.getId().equals(id)) {
@@ -66,7 +66,7 @@ public class KprClientAccessService implements KprClientDao{
 	public KprClientModel searchKprClient(UUID id) {
 		// TODO Auto-generated method stub
 		logger.info("Start search with id : {}", id);
-		KprClientModel kprFind = searchUserFromList(id);
+		KprClientModel kprFind = searchKprFromList(id);
 		return kprFind;
 	}
 }
