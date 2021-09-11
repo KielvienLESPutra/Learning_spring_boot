@@ -63,8 +63,10 @@ public class KprClientAccessService implements KprClientDao{
 	}
 
 	@Override
-	public UserModel searchKprClient() {
+	public KprClientModel searchKprClient(UUID id) {
 		// TODO Auto-generated method stub
-		return null;
+		logger.info("Start search with id : {}", id);
+		KprClientModel kprFind = searchUserFromList(id);
+		return kprFind;
 	}
 }
