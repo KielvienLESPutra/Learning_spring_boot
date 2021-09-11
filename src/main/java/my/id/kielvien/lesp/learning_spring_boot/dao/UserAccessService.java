@@ -90,7 +90,7 @@ public class UserAccessService implements UserDao{
 	@Override
 	public UserModel searchUser(UUID id) {
 		// TODO Auto-generated method stub
-		logger.info("Start search with id : {}", id);
+		logger.info("Start search user with id : {}", id);
 		UserModel userFind = searchUserFromList(id);
 		return userFind;
 	}
