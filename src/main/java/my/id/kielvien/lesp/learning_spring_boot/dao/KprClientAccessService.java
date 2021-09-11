@@ -45,7 +45,7 @@ public class KprClientAccessService implements KprClientDao{
 	}
 
 	@Override
-	public boolean updateKprClient() {
+	public boolean updateKprClient(UUID id, KprClientModel kpr) {
 		// TODO Auto-generated method stub
 		return false;
 	}
