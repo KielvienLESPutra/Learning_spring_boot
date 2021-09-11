@@ -57,9 +57,20 @@ public class KprClientAccessService implements KprClientDao{
 	}
 
 	@Override
-	public boolean deleteKprClient() {
+	public boolean deleteKprClient(UUID id) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		try {
+			KprClientModel kprFind = searchKprFromList(id);
+			if(null != kprFind) {
+				kprClients.remove(kprFind);
+				result = true;
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			logger.error("Error exception delete user : " + id, e);
+		}
+		return result;
 	}
 
 	@Override
