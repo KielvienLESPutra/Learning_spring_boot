@@ -40,7 +40,11 @@ public class KprClientService {
 	}
 	
 	public boolean updateKprClient(UUID id, KprClientModel kpr) {
-		return kprAccess.updateKprClient(id, calculateLoanInterestFlat(kpr));
+		boolean result = false;
+		if(null != userAccess.searchUser(kpr.getIdClient())) {
+			result = kprAccess.updateKprClient(id, calculateLoanInterestFlat(kpr));
+		}
+		return result;
 	}
 	
 	public boolean deleteKprClient(UUID id) {
