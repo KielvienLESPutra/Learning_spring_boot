@@ -53,7 +53,7 @@ public class KprClientAccessService implements KprClientDao{
 	@Override
 	public List<KprClientModel> showKprClient() {
 		// TODO Auto-generated method stub
-		return null;
+		return kprClients;
 	}
 
 	@Override
