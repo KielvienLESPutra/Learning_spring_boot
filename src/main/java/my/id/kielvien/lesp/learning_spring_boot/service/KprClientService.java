@@ -5,13 +5,16 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import my.id.kielvien.lesp.learning_spring_boot.dao.KprClientAccessService;
 import my.id.kielvien.lesp.learning_spring_boot.models.KprClientModel;
 
+@Service
 public class KprClientService {
 	private KprClientAccessService kprAccess;
 	
+	@Autowired
 	private KprClientModel calculateLoanInterestFlat(KprClientModel kpr) {
 		if(0 <= kpr.getInstalment()) {
 			double instalment = (kpr.getLoanInterest() * (kpr.getTotal() - kpr.getDp())) / 12;
