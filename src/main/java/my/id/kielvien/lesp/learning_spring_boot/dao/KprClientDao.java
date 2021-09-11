@@ -9,6 +9,6 @@ public interface KprClientDao {
 	public boolean addKprClient(KprClientModel user);
 	public boolean updateKprClient();
 	public List<KprClientModel> showKprClient();
-	public boolean deleteKprClient();
 	public KprClientModel searchKprClient(UUID id);
+	public boolean deleteKprClient(UUID id);
 }
