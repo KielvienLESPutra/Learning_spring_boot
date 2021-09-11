@@ -17,12 +17,12 @@ public class KprClientService {
 		this.kprAccess = kprAccess;
 	}
 	
-	public void addUser(KprClientModel user) {
-		kprAccess.addKprClient(user);
+	public void addUser(KprClientModel kpr) {
+		kprAccess.addKprClient(kpr);
 	}
 	
-	public boolean updateUser(UUID id, KprClientModel user) {
-		return kprAccess.updateKprClient(id, user);
+	public boolean updateUser(UUID id, KprClientModel kpr) {
+		return kprAccess.updateKprClient(id, kpr);
 	}
 	
 	public boolean deleteUser(UUID id) {
