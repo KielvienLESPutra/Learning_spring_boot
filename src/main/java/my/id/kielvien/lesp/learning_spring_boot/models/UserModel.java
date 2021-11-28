@@ -1,10 +1,21 @@
 package my.id.kielvien.lesp.learning_spring_boot.models;
-
 import java.util.UUID;
+
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@Entity
+@Table(name = "users")
 public class UserModel {
+
+	@Id
+	@GeneratedValue
 	private UUID id;
 	private String name;
 	private String address;
@@ -16,7 +27,7 @@ public class UserModel {
 			@JsonProperty("address") String address, 
 			@JsonProperty("telp") String telp, 
 			@JsonProperty("email") String email) {
-		this.id = java.util.UUID.randomUUID();
+		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.telp = telp;
